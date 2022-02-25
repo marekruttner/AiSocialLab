@@ -144,6 +144,7 @@ def compute_iou(boxes1, boxes2):
     )
     return tf.clip_by_value(intersection_area / union_area, 0.0, 1.0)
 
+
 def visualize_detections(
     image, boxes, classes, scores, figsize=(7, 7), linewidth=1, color=[0, 0, 1]
 ):
@@ -169,14 +170,14 @@ def visualize_detections(
             clip_box=ax.clipbox,
             clip_on=True,
         )
-    plt.ion()
+    plt.ioff()
     plt.pause(0.1)
     fig.show()
     return ax
 
 def clear_figure():
     fig = plt.gcf()
-    plt.pause(0.03)
+    plt.pause(0.1)
     fig.clf()
     plt.gca()
 
