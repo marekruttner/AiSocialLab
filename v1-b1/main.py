@@ -904,11 +904,12 @@ while True:
     int2str = dataset_info.features["objects"]["label"].int2str
 
     for image in val_dataset.take(1): # !!!! NEVER CHANGE THIS!!!!
-        #image = tf.keras.preprocessing.image.load_img(frame) #img for detecting location 
-        #input_arr = tf.keras.preprocessing.load_tensor(tensor)
-        input_arr = np.array(inp)  # Convert single image to a batch.
-        to_detect = tf.convert_to_tensor(input_arr, dtype=tf.float32)
-        input_image, ratio = prepare_image(np.expand_dims(to_detect, 0))
+        #image = tf.keras.preprocessing.image.load_img(inp_exp)
+        #image = cv2.imread(inp_exp, cv2.IMREAD_COLOR)
+        input_arr = tf.keras.preprocessing.image.img_to_array(inp_exp)
+        input_arr = np.array(input_arr)  # Convert single image to a batch.
+        to_detect = tf.cast(input_arr, dtype=tf.float32)
+        input_image, ratio = prepare_image(to_detect)
         detections = inference_model.predict(input_image)
 
         num_detections = detections.valid_detections[0]
