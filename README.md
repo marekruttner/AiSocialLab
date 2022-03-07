@@ -1,4 +1,9 @@
 # AiSocialLab
+**install**
+- Clone git repository
+- Install requirements.txt with pip install -r requirements.txt
+- Run main.py
+
 **v1-a1**
 - Sequence of taking photos and opening it in matplotlib
 - Slow, but working
