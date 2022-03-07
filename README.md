@@ -6,4 +6,4 @@
 **v1-b1**
 - Opening video stream from camera with cv2 and running detections on each frame 
 - Not working 
-- Problem with kraes.preprocess_image: dimensions on input
+- Problem with tf: biases on input 
