@@ -3,6 +3,7 @@
 - Clone git repository
 - Install requirements.txt with pip install -r requirements.txt
 - Run main.py
+- Stop by pressing q on keyboard
 
 **v1**
 - Stable 
