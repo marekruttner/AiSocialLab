@@ -5,6 +5,7 @@
 - Run main.py
 
 **v1**
+- Stable 
 - Running detections on video stream from camera 
 - Using RetinaNet and part of COCO dataset
 - Can be trained on full COCO dataset 
