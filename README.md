@@ -8,6 +8,9 @@
 **hardware requirements**
 - Minimum for running with minimal lags RTX 3060 with CUDA enabled
 
+**training on full COCO dataset**
+- uncomment lines from 866 to 900
+- chachage model_dir from data to retinanet in line 907
 **v1**
 - Stable 
 - Running detections on video stream from camera 
