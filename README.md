@@ -5,6 +5,9 @@
 - Run main.py
 - Stop by pressing q on keyboard
 
+**hardware requirements**
+- Minimum for running with minimal lags RTX 3060 with CUDA enabled
+
 **v1**
 - Stable 
 - Running detections on video stream from camera 
