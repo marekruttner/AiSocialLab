@@ -11,6 +11,12 @@
 **training on full COCO dataset**
 - uncomment lines from 866 to 900
 - chachage model_dir from data to retinanet in line 907
+
+
+**v1.1** 
+- NOT WORKING
+- Visualization of detections migrated from matlab.pyplot to cv2
+
 **v1**
 - Stable 
 - Running detections on video stream from camera 
