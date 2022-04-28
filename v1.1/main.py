@@ -156,18 +156,19 @@ def visualize_detections(
     """Visualize Detections"""
 
     image = np.array(image, dtype=np.uint8)
+    viz_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     for box, _cls, score in zip(boxes, classes, scores):
-        
+        """
         #text = cv2.putText("{}: {:.2f}".format(_cls, score))
         x1, y1, x2, y2 = box
         w,h = x2 - x1, y2 - y1
         patch = cv2.rectangle(
             image, (x1, y1), (w, h), color, linewidth
         )
-        
-    print("{}: {:.2f}".format(_cls, score))
-    cv2.imshow("output", patch)
+        """
+        print("{}: {:.2f}".format(_cls, score))
+    cv2.imshow("output", viz_image)
 
         
 
@@ -936,19 +937,9 @@ while True:
         class_names,
         detections.nmsed_scores[0][:num_detections],
     )
-    key = cv2.waitKey(0) & 0xFF
-    if key == ord("q"):
-        break
-
     
-"""
-    if cv2.waitKey("q") & 0xFF == ord("q"):
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         break
-"""  
-cap.release()
-cv2.destroyAllWindows()
-
-
 print('done')
 
 
