@@ -161,20 +161,23 @@ def visualize_detections(
     for box, _cls, score in zip(boxes, classes, scores):
         
         #text = cv2.putText("{}: {:.2f}".format(_cls, score))
-        color = np.random.randint(0, 256, 3, dtype=np.uint8)
+        color = [0, 0, 255]
         x1, y1, x2, y2 = box
-        w, h = x2 - x1, y2 - y1
+        #w, h = x2 - x1, y2 - y1
         start_x = int(x1)
         start_y = int(y1)
-        end_x = int(x2 * w)
-        end_y = int(y2 * h)
-        viz_box = cv2.rectangle(
-            viz_image, (start_x, start_y), (end_x, end_y), color.tolist(), 4
+        start_y_text = int(y1 - 0.5)
+        end_x = int(x2)
+        end_y = int(y2)
+        cv2.putText(
+            viz_image,"{}: {:.2f}".format(_cls, score), (start_x, start_y_text), cv2.FONT_HERSHEY_DUPLEX, 0.5, color, 1
+        )
+        cv2.rectangle(
+            viz_image, (start_x, start_y), (end_x, end_y), color, 1
         )
         
         print("{}: {:.2f}".format(_cls, score))
-    cv2.imshow("output", viz_box)
-    return viz_box
+        cv2.imshow("output", viz_image)
 
         
 
