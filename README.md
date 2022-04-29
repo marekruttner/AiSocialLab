@@ -14,7 +14,7 @@
 
 
 **v1.1** 
-- !!!NOT WORKING BOUNDING BOXES, OUTPUT IN CONSOL AS TEXT!!!
+- Stable
 - Visualization of detections migrated from matlab.pyplot to cv2
 
 **v1**
