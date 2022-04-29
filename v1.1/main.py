@@ -151,7 +151,7 @@ def compute_iou(boxes1, boxes2):
 
 
 def visualize_detections(
-    image, boxes, classes, scores, figsize=(7, 7), linewidth=1, color=[0, 0, 1]
+    image, boxes, classes, scores
 ):
     """Visualize Detections"""
 
@@ -159,16 +159,22 @@ def visualize_detections(
     viz_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     for box, _cls, score in zip(boxes, classes, scores):
-        """
+        
         #text = cv2.putText("{}: {:.2f}".format(_cls, score))
+        color = np.random.randint(0, 256, 3, dtype=np.uint8)
         x1, y1, x2, y2 = box
-        w,h = x2 - x1, y2 - y1
-        patch = cv2.rectangle(
-            image, (x1, y1), (w, h), color, linewidth
+        w, h = x2 - x1, y2 - y1
+        start_x = int(x1)
+        start_y = int(y1)
+        end_x = int(x2 * w)
+        end_y = int(y2 * h)
+        viz_box = cv2.rectangle(
+            viz_image, (start_x, start_y), (end_x, end_y), color.tolist(), 4
         )
-        """
+        
         print("{}: {:.2f}".format(_cls, score))
-    cv2.imshow("output", viz_image)
+    cv2.imshow("output", viz_box)
+    return viz_box
 
         
 
@@ -898,8 +904,8 @@ inference_model = tf.keras.Model(inputs=image, outputs=detections)
 """
 cap = cv2.VideoCapture(0)
 
-width = 800
-height = 800
+width = 1920
+height = 1080
 
 while True:
 
