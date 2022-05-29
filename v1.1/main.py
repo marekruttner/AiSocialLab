@@ -54,6 +54,7 @@ lot of time, hence we will be using a smaller subset of ~500 images for
 training in this example.
 """
 
+
 url = "https://github.com/srihari-humbarwadi/datasets/releases/download/v0.1.0/data.zip"
 filename = os.path.join(os.getcwd(), "data.zip")
 keras.utils.get_file(filename, url)
@@ -178,6 +179,7 @@ def visualize_detections(
         
         print("{}: {:.2f}".format(_cls, score))
         cv2.imshow("output", viz_image)
+
 
         
 
@@ -949,6 +951,9 @@ while True:
     
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
+
+cap.release()
+cv2.destroyAllWindows()
 print('done')
 
 
